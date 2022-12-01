@@ -1,7 +1,7 @@
 About pytest-jupyter
 ====================
 
-Home: https://pypi.org/project/pytest-jupyter/
+Home: https://pypi.org/project/pytest-jupyter
 
 Package license: BSD-3-Clause
 
@@ -30,6 +30,8 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pytest--jupyter-green.svg)](https://anaconda.org/conda-forge/pytest-jupyter) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytest-jupyter.svg)](https://anaconda.org/conda-forge/pytest-jupyter) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytest-jupyter.svg)](https://anaconda.org/conda-forge/pytest-jupyter) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytest-jupyter.svg)](https://anaconda.org/conda-forge/pytest-jupyter) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pytest--jupyter--client-green.svg)](https://anaconda.org/conda-forge/pytest-jupyter-client) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytest-jupyter-client.svg)](https://anaconda.org/conda-forge/pytest-jupyter-client) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytest-jupyter-client.svg)](https://anaconda.org/conda-forge/pytest-jupyter-client) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytest-jupyter-client.svg)](https://anaconda.org/conda-forge/pytest-jupyter-client) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pytest--jupyter--server-green.svg)](https://anaconda.org/conda-forge/pytest-jupyter-server) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytest-jupyter-server.svg)](https://anaconda.org/conda-forge/pytest-jupyter-server) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytest-jupyter-server.svg)](https://anaconda.org/conda-forge/pytest-jupyter-server) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytest-jupyter-server.svg)](https://anaconda.org/conda-forge/pytest-jupyter-server) |
 
 Installing pytest-jupyter
 =========================
@@ -41,16 +43,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pytest-jupyter` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pytest-jupyter, pytest-jupyter-client, pytest-jupyter-server` can be installed with `conda`:
 
 ```
-conda install pytest-jupyter
+conda install pytest-jupyter pytest-jupyter-client pytest-jupyter-server
 ```
 
 or with `mamba`:
 
 ```
-mamba install pytest-jupyter
+mamba install pytest-jupyter pytest-jupyter-client pytest-jupyter-server
 ```
 
 It is possible to list all of the versions of `pytest-jupyter` available on your platform with `conda`:
@@ -146,5 +148,6 @@ Feedstock Maintainers
 =====================
 
 * [@blink1073](https://github.com/blink1073/)
+* [@conda-forge/jupyter_server](https://github.com/conda-forge/jupyter_server/)
 * [@fcollonval](https://github.com/fcollonval/)
 

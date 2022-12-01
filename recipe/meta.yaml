@@ -1,53 +1,119 @@
-{% set name = "pytest-jupyter" %}
 {% set version = "0.5.3" %}
 
 package:
-  name: {{ name|lower }}
+  name: pytest-jupyter-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pytest_jupyter-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/pytest-jupyter/pytest_jupyter-{{ version }}.tar.gz
   sha256: bc3539ee343cf7bd2de94a3dbadc214bddeac509899ca188112d4cb7f230f5f9
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - python >=3.7
-    - pip
-    - hatchling
   run:
     - python >=3.7
-    - jupyter_core
-    - pytest
 
-test:
-  source_files:
-    - tests
-  imports:
-    - pytest_jupyter
-  commands:
-    - pip check
-    - cd tests && pytest -vv --cov pytest_jupyter --cov-report term-missing:skip-covered --no-cov-on-fail --cov-fail-under 90
-  requires:
-    - pip
-    - pytest-cov
-    - jupyter_server >=1.21
-    - jupyter_client >=7.4
-    - ipykernel >=6.14
-    - nbformat >=5.3
+outputs:
+  - name: pytest-jupyter
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - python >=3.7
+        - pip
+        - hatchling
+      run:
+        - python >=3.7
+        - jupyter_core
+        - pytest
+      run_constrained:
+        # the hard `run` dependencies are in sub-packages
+        - jupyter_server >=1.21
+        - jupyter_client >=7.4
+        - ipykernel >=6.14
+        - nbformat >=5.3
+    test:
+      source_files:
+        - tests
+      imports:
+        - pytest_jupyter
+        - pytest_jupyter.jupyter_core
+      commands:
+        - pip check
+      requires:
+        - pip
+
+  - name: pytest-jupyter-client
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python >=3.7
+      run:
+        - {{ pin_subpackage("pytest-jupyter", max_pin="x.x.x") }}
+        - ipykernel
+        - jupyter_client
+        - python >=3.7
+    test:
+      imports:
+        - pytest_jupyter
+        - pytest_jupyter.jupyter_client
+      commands:
+        - pip check
+      requires:
+        - pip
+    about:
+      home: https://pypi.org/project/pytest-jupyter
+      summary: A pytest plugin for testing Jupyter libraries and extensions. (with client dependencies)
+      dev_url: https://github.com/jupyter-server/pytest-jupyter
+      license: BSD-3-Clause
+      license_file: LICENSE
+
+  - name: pytest-jupyter-server
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python >=3.7
+      run:
+        - {{ pin_subpackage("pytest-jupyter-client", max_pin="x.x.x") }}
+        - jupyter_server
+        - python >=3.7
+    test:
+      source_files:
+        - tests
+      imports:
+        - pytest_jupyter
+        - pytest_jupyter.jupyter_server
+      commands:
+        - pip check
+        - cd tests && pytest -vv --cov=pytest_jupyter --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
+      requires:
+        - pip
+        - pytest-cov
+    about:
+      home: https://pypi.org/project/pytest-jupyter
+      summary: A pytest plugin for testing Jupyter libraries and extensions. (with server dependencies)
+      dev_url: https://github.com/jupyter-server/pytest-jupyter
+      license: BSD-3-Clause
+      license_file: LICENSE
 
 about:
-  home: https://pypi.org/project/pytest-jupyter/
+  home: https://pypi.org/project/pytest-jupyter
   summary: A pytest plugin for testing Jupyter libraries and extensions.
   dev_url: https://github.com/jupyter-server/pytest-jupyter
   license: BSD-3-Clause
   license_file: LICENSE
 
 extra:
+  feedstock-name: pytest-jupyter
   recipe-maintainers:
     - blink1073
     - fcollonval
+    - conda-forge/jupyter_server
