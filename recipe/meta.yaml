@@ -51,7 +51,7 @@ outputs:
       requires:
         - pip
 
-  - name: pytest-jupyter-with-client
+  - name: pytest-jupyter-client
     build:
       noarch: python
     requirements:
@@ -77,14 +77,14 @@ outputs:
       license: BSD-3-Clause
       license_file: LICENSE
 
-  - name: pytest-jupyter-with-server
+  - name: pytest-jupyter-server
     build:
       noarch: python
     requirements:
       host:
         - python >=3.7
       run:
-        - {{ pin_subpackage("pytest-jupyter-with-client", max_pin="x.x.x") }}
+        - {{ pin_subpackage("pytest-jupyter-client", max_pin="x.x.x") }}
         - jupyter_server
         - python >=3.7
     test:
