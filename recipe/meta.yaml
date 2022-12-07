@@ -1,4 +1,4 @@
-{% set version = "0.5.3" %}
+{% set version = "0.6.0" %}
 
 package:
   name: pytest-jupyter-split
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pytest-jupyter/pytest_jupyter-{{ version }}.tar.gz
-  sha256: bc3539ee343cf7bd2de94a3dbadc214bddeac509899ca188112d4cb7f230f5f9
+  sha256: bd7fe141fcbcc119fd93040a463fb3739fe4a3aad1b7b3a0efab0a68cd70913c
 
 build:
   noarch: python
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,7 +21,6 @@ requirements:
 outputs:
   - name: pytest-jupyter
     build:
-      noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
@@ -51,7 +50,6 @@ outputs:
 
   - name: pytest-jupyter-client
     build:
-      noarch: python
     requirements:
       host:
         - python >=3.7
@@ -77,7 +75,6 @@ outputs:
 
   - name: pytest-jupyter-server
     build:
-      noarch: python
     requirements:
       host:
         - python >=3.7
