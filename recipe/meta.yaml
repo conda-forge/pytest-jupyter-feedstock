@@ -10,7 +10,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -21,7 +21,8 @@ requirements:
 outputs:
   - name: pytest-jupyter
     build:
-      script: {{ PYTHON }} -m pip install . -vv
+      script: {{ PYTHON }} -m pip install . -vv --no-deps
+      noarch: python
     requirements:
       host:
         - python >=3.7
@@ -49,6 +50,8 @@ outputs:
         - pip
 
   - name: pytest-jupyter-client
+    build:
+      noarch: python
     requirements:
       host:
         - python >=3.7
@@ -73,6 +76,8 @@ outputs:
       license_file: LICENSE
 
   - name: pytest-jupyter-server
+    build:
+      noarch: python
     requirements:
       host:
         - python >=3.7
