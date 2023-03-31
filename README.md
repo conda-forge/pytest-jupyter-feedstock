@@ -1,13 +1,36 @@
+About pytest-jupyter-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-jupyter-feedstock/blob/main/LICENSE.txt)
+
 About pytest-jupyter
-====================
+--------------------
 
 Home: https://pypi.org/project/pytest-jupyter
 
 Package license: BSD-3-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-jupyter-feedstock/blob/main/LICENSE.txt)
-
 Summary: A pytest plugin for testing Jupyter libraries and extensions.
+
+Development: https://github.com/jupyter-server/pytest-jupyter
+About pytest-jupyter-client
+---------------------------
+
+Home: https://pypi.org/project/pytest-jupyter
+
+Package license: BSD-3-Clause
+
+Summary: A pytest plugin for testing Jupyter libraries and extensions. (with client dependencies)
+
+Development: https://github.com/jupyter-server/pytest-jupyter
+About pytest-jupyter-server
+---------------------------
+
+Home: https://pypi.org/project/pytest-jupyter
+
+Package license: BSD-3-Clause
+
+Summary: A pytest plugin for testing Jupyter libraries and extensions. (with server dependencies)
 
 Development: https://github.com/jupyter-server/pytest-jupyter
 
