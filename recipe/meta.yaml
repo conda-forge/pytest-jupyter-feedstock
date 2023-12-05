@@ -1,4 +1,4 @@
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: pytest-jupyter-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pytest-jupyter/pytest_jupyter-{{ version }}.tar.gz
-  sha256: 6403b7f6f5eaaa5a9faffd73d2ff1097106a7dc5c3204292212487fc9fb71843
+  sha256: 842817c300802c8608676bbb1460ba0081f2688cf5cb55b87d7bad5dcb0e9729
 
 build:
   noarch: python

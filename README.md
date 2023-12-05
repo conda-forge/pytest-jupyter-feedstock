@@ -3,6 +3,7 @@ About pytest-jupyter-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-jupyter-feedstock/blob/main/LICENSE.txt)
 
+
 About pytest-jupyter
 --------------------
 
@@ -13,6 +14,7 @@ Package license: BSD-3-Clause
 Summary: A pytest plugin for testing Jupyter libraries and extensions.
 
 Development: https://github.com/jupyter-server/pytest-jupyter
+
 About pytest-jupyter-client
 ---------------------------
 
@@ -23,6 +25,7 @@ Package license: BSD-3-Clause
 Summary: A pytest plugin for testing Jupyter libraries and extensions. (with client dependencies)
 
 Development: https://github.com/jupyter-server/pytest-jupyter
+
 About pytest-jupyter-server
 ---------------------------
 
@@ -122,7 +125,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
