@@ -1,5 +1,8 @@
 {% set version = "0.10.1" %}
 
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+
 package:
   name: pytest-jupyter-split
   version: {{ version }}
@@ -14,28 +17,28 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
   run:
-    - python >=3.7
+    - python >=3.8
 
 outputs:
   - name: pytest-jupyter
     build:
-      script: {{ PYTHON }} -m pip install . -vv --no-deps
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
       noarch: python
     requirements:
       host:
-        - python >=3.7
+        - python >=3.8
         - pip
         - hatchling
       run:
-        - python >=3.7
-        - jupyter_core
-        - pytest
+        - python >=3.8
+        - jupyter_core >=5.7
+        - pytest >=7
       run_constrained:
         # the hard `run` dependencies are in sub-packages
         - jupyter_server >=1.21
-        - jupyter_client >=7.4
+        - jupyter_client >=7.4.0
         - ipykernel >=6.14
         - nbformat >=5.3
     test:
@@ -51,15 +54,12 @@ outputs:
 
   - name: pytest-jupyter-client
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.7
       run:
-        - {{ pin_subpackage("pytest-jupyter", max_pin="x.x.x") }}
+        - {{ pin_subpackage("pytest-jupyter", exact=True) }}
         - ipykernel
         - jupyter_client
-        - python >=3.7
     test:
       imports:
         - pytest_jupyter
@@ -77,14 +77,11 @@ outputs:
 
   - name: pytest-jupyter-server
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.7
       run:
-        - {{ pin_subpackage("pytest-jupyter-client", max_pin="x.x.x") }}
+        - {{ pin_subpackage("pytest-jupyter-client", exact=True) }}
         - jupyter_server
-        - python >=3.7
     test:
       source_files:
         - tests
