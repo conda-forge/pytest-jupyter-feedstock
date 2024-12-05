@@ -174,6 +174,6 @@ Feedstock Maintainers
 =====================
 
 * [@blink1073](https://github.com/blink1073/)
-* [@conda-forge/jupyter_server](https://github.com/conda-forge/jupyter_server/)
+* [@conda-forge/jupyter_server](https://github.com/orgs/conda-forge/teams/jupyter_server/)
 * [@fcollonval](https://github.com/fcollonval/)
 
