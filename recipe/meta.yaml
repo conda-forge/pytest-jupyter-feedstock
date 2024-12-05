@@ -8,18 +8,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pytest-jupyter/pytest_jupyter-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pytest-jupyter/pytest_jupyter-{{ version }}.tar.gz
   sha256: 00df54eef9e201dd542d5471b8980def15d34b917b30587d14d7c824fc4d9e84
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
 
 outputs:
   - name: pytest-jupyter
@@ -28,11 +28,11 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
         - pip
         - hatchling
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - jupyter_core >=5.7
         - pytest >=7
       run_constrained:
