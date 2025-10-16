@@ -4,6 +4,7 @@ schema_version: 1
 context:
   version: "0.11.0"
   python_check_max: "3.14"
+  cov_fail_under: "87"
 
 recipe:
   name: pytest-jupyter-split
@@ -93,7 +94,7 @@ outputs:
             - python ${{ python_min }}.*
         script:
           - coverage run --source=pytest_jupyter --branch -m pytest -vv --tb=long --color=yes
-          - coverage report --show-missing --skip-covered --fail-under=87
+          - coverage report --show-missing --skip-covered --fail-under=${{ cov_fail_under }}
     about:
       summary: A pytest plugin for testing Jupyter libraries and extensions. (with server dependencies)
       license: BSD-3-Clause
