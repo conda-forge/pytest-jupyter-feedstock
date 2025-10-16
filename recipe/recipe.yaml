@@ -90,9 +90,10 @@ outputs:
         requirements:
           run:
             - pytest-cov
+            - python ${{ python_min }}.*
         script:
-          - cd tests
-          - pytest -vv --cov=pytest_jupyter --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
+          - coverage run --source=pytest_jupyter --branch -m pytest -vv --tb=long --color=yes
+          - coverage report --show-missing --skip-covered --fail-under=90
     about:
       summary: A pytest plugin for testing Jupyter libraries and extensions. (with server dependencies)
       license: BSD-3-Clause
