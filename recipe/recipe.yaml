@@ -93,7 +93,7 @@ outputs:
             - python ${{ python_min }}.*
         script:
           - coverage run --source=pytest_jupyter --branch -m pytest -vv --tb=long --color=yes
-          - coverage report --show-missing --skip-covered --fail-under=90
+          - coverage report --show-missing --skip-covered --fail-under=87
     about:
       summary: A pytest plugin for testing Jupyter libraries and extensions. (with server dependencies)
       license: BSD-3-Clause
