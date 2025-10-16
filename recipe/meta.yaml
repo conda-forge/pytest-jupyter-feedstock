@@ -1,4 +1,4 @@
-{% set version = "0.10.1" %}
+{% set version = "0.11.0" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,11 +9,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pytest-jupyter/pytest_jupyter-{{ version }}.tar.gz
-  sha256: 00df54eef9e201dd542d5471b8980def15d34b917b30587d14d7c824fc4d9e84
+  sha256: a4e08ced44cfea1bce080090c626b8dc4f9d617fa5aafcd84b71405f503e9899
 
 build:
   noarch: python
-  number: 1
+  number: 0
 
 requirements:
   host:
